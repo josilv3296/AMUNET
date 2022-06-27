@@ -5,7 +5,7 @@ $backup_rotate = true;
 
 set_time_limit(300);
 include_once('rcon.php');
-//include_once('continue.php');
+include_once('continue.php');
 //include_once('primary.php');
 //include_once('pippi.php');
 //include_once('votes.php');
@@ -176,6 +176,7 @@ switch ($command) {
 		fclose($handle);
 
 		// MOD exports begin
+		continueExport($parameter, $funcom_id);
 		// MOD exports end
 
 		// remove the player and execute open command
@@ -194,6 +195,7 @@ switch ($command) {
 		$votes_result = -1;
 
 		// MOD check begin
+		continueCheck($server_id, $funcom_id);
 		// MOD check end
 
 		// check if we got any file to import
